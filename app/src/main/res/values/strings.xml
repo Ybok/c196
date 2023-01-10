@@ -6,4 +6,8 @@
     <string name="courses">Courses</string>
     <string name="assessments">Assessments</string>
     <string name="mentors">Mentors</string>
+    <string name="term_button">Term Button</string>
+    <string name="course_button">Course Button</string>
+    <string name="assessment_button">Assessment Button</string>
+    <string name="mentor_button">Mentor Button</string>
 </resources>

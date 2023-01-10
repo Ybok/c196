@@ -19,16 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/termButton"
-        android:layout_width="92dp"
-        android:layout_height="89dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/calendar_foreground" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -41,36 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/termButton"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/courseButton"
-        android:layout_width="92dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/termButton"
-        app:srcCompat="@drawable/book_foreground" />
-
-    <ImageButton
-        android:id="@+id/assessmentButton"
-        android:layout_width="92dp"
-        android:layout_height="106dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseButton"
-        app:srcCompat="@drawable/assessment_foreground" />
-
-    <ImageButton
-        android:id="@+id/mentorButton"
-        android:layout_width="94dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessmentButton"
-        app:srcCompat="@drawable/mentor_foreground" />
 
     <TextView
         android:id="@+id/textView"
@@ -104,5 +64,49 @@
         android:textSize="34sp"
         app:layout_constraintStart_toEndOf="@+id/mentorButton"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageButton
+        android:id="@+id/termButton"
+        android:layout_width="92dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/term_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/calendar_foreground" />
+
+    <ImageButton
+        android:id="@+id/courseButton"
+        android:layout_width="92dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/course_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/termButton"
+        app:srcCompat="@drawable/book_foreground" />
+
+    <ImageButton
+        android:id="@+id/assessmentButton"
+        android:layout_width="92dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/assessment_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courseButton"
+        app:srcCompat="@drawable/assessment_foreground" />
+
+    <ImageButton
+        android:id="@+id/mentorButton"
+        android:layout_width="94dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/mentor_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessmentButton"
+        app:srcCompat="@drawable/mentor_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
