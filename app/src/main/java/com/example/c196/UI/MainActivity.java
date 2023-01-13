@@ -65,14 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        ImageButton mentorButton=findViewById(R.id.mentorButton);
-        mentorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, Mentors.class);
-                startActivity(intent);
-            }
-        });
     }
 
 

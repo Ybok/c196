@@ -30,7 +30,7 @@ public class ProductDetails extends AppCompatActivity {
         setContentView(R.layout.activity_product_details);
 
         editName = findViewById(R.id.productname);
-        editPrice=findViewById(R.id.productprice);
+        editPrice = findViewById(R.id.productprice);
         //spelled same as adapter. default if number
         id = getIntent().getIntExtra("id", -1);
         name = getIntent().getStringExtra("name");

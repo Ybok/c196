@@ -4,11 +4,9 @@ import android.app.Application;
 
 import com.example.c196.dao.AssessmentDAO;
 import com.example.c196.dao.CourseDAO;
-import com.example.c196.dao.MentorDAO;
 import com.example.c196.dao.TermDAO;
 import com.example.c196.entities.Assessment;
 import com.example.c196.entities.Course;
-import com.example.c196.entities.Mentor;
 import com.example.c196.entities.Term;
 
 import java.util.List;
@@ -19,11 +17,9 @@ public class Repository {
     private TermDAO mTermDAO;
     private CourseDAO mCourseDAO;
     private AssessmentDAO mAssessmentDAO;
-    private MentorDAO mMentorDAO;
     private List<Term> mAllTerms;
     private List<Course> mAllCourses;
     private List<Assessment> mAllAssessments;
-    private List<Mentor> mAllMentors;
 
     private static int NUMBER_OF_THREADS=4;
     static final ExecutorService databaseExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
@@ -33,7 +29,6 @@ public class Repository {
         mTermDAO = db.termDAO();
         mCourseDAO = db.courseDAO();
         mAssessmentDAO = db.assessmentDAO();
-        mMentorDAO = db.mentorDAO();
     }
 
     //Term Methods
@@ -138,43 +133,6 @@ public class Repository {
     }
     public void deleteAssessment(Assessment assessment) {
         databaseExecutor.execute(() -> mAssessmentDAO.deleteAssessment(assessment));
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Mentor Methods
-    public List<Mentor> getMentors() {
-        databaseExecutor.execute(() -> {
-            mAllMentors = mMentorDAO.getMentors();
-        });
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return mAllMentors;
-    }
-    public void insertMentor(Mentor mentor) {
-        databaseExecutor.execute(() -> mMentorDAO.insertMentor(mentor));
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    public void updateMentor(Mentor mentor) {
-        databaseExecutor.execute(() -> mMentorDAO.updateMentor(mentor));
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    public void deleteMentor(Mentor mentor) {
-        databaseExecutor.execute(() -> mMentorDAO.deleteMentor(mentor));
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {

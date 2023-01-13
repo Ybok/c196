@@ -22,15 +22,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hi!"/>
-                <TextView
+                    android:text="Term Name"/>
+                <EditText
+                    android:id="@+id/termname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hi!"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hi!"/>
+                    android:hint="Term"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -39,16 +36,38 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Low!"/>
-                <TextView
+                    android:text="Term Start"/>
+                <EditText
+                    android:id="@+id/termstart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Low!"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Low!"/>
+                    android:hint="1 Jan 2023"/>
+
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Term End"/>
+                <EditText
+                    android:id="@+id/termend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="30 Jun 2023"/>
+            </LinearLayout>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/saveterm"
+                    android:text="Save"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </LinearLayout>
     </ScrollView>
 

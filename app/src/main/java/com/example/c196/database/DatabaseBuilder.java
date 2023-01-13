@@ -8,19 +8,16 @@ import androidx.room.RoomDatabase;
 
 import com.example.c196.dao.AssessmentDAO;
 import com.example.c196.dao.CourseDAO;
-import com.example.c196.dao.MentorDAO;
 import com.example.c196.dao.TermDAO;
 import com.example.c196.entities.Assessment;
 import com.example.c196.entities.Course;
-import com.example.c196.entities.Mentor;
 import com.example.c196.entities.Term;
 
-@Database(entities = {Term.class, Course.class, Assessment.class, Mentor.class}, version = 1, exportSchema = false)
+@Database(entities = {Term.class, Course.class, Assessment.class}, version = 1, exportSchema = false)
 public abstract class DatabaseBuilder extends RoomDatabase {
     public abstract TermDAO termDAO();
     public abstract CourseDAO courseDAO();
     public abstract AssessmentDAO assessmentDAO();
-    public abstract MentorDAO mentorDAO();
 
     private static volatile DatabaseBuilder INSTANCE;
 
