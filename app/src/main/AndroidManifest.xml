@@ -76,6 +76,15 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".UI.CourseDetails"
+            android:exported="false"
+            android:label="Course Details"
+            android:parentActivityName=".UI.Terms">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".UI.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -7,13 +7,19 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c196.R;
 import com.example.c196.database.BikeRepository;
 import com.example.c196.database.Repository;
+import com.example.c196.entities.Course;
 import com.example.c196.entities.Product;
 import com.example.c196.entities.Term;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TermDetails extends AppCompatActivity {
 
@@ -45,6 +51,16 @@ public class TermDetails extends AppCompatActivity {
         editTermEnd.setText((termEnd));
 
         repository = new Repository(getApplication());
+        RecyclerView recyclerView = findViewById(R.id.courserecyclerview);
+        repository = new Repository(getApplication());
+        final CourseAdapter courseAdapter = new CourseAdapter(this);
+        recyclerView.setAdapter(courseAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Course> filteredCourses = new ArrayList<>();
+        for (Course c : repository.getCourses()) {
+            if (c.getTermID() == termID) filteredCourses.add(c);
+        }
+        courseAdapter.setCourses(filteredCourses);
 
         Button button=findViewById(R.id.saveterm);
         button.setOnClickListener(new View.OnClickListener() {

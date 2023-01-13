@@ -7,6 +7,7 @@
     tools:context=".UI.TermDetails">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:orientation="vertical"
@@ -80,5 +81,14 @@
         android:text="Add Course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@id/scrollView"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/courserecyclerview"
+        android:layout_width="409dp"
+        android:layout_height="365dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="301dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
