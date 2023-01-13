@@ -60,13 +60,14 @@ public class TermDetails extends AppCompatActivity {
             }
         });
 
-//        FloatingActionButton fab=findViewById(R.id.floatingActionButton2);
+//        Button fab=findViewById(R.id.button2);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                Intent intent=new Intent(ProductDetails.this, PartDetails.class);
+//                Intent intent=new Intent(TermDetails.this, Courses.class);
 //                startActivity(intent);
 //            }
 //        });
+
     }
 }
