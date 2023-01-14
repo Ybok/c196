@@ -63,7 +63,7 @@ public class CourseDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(courseID==-1) {
-                    course = new Course(0, editCourseName.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(), editCourseStatus.getText().toString(), editCourseNotes.getText().toString(), termID);
+                    course = new Course(0, editCourseName.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(), editCourseStatus.getText().toString(), editCourseNotes.getText().toString(), Integer.parseInt(String.valueOf(editTermID.getText())));
                     repository.insertCourse(course);
                 } else {
                     course = new Course(courseID, editCourseName.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(), editCourseStatus.getText().toString(), editCourseNotes.getText().toString(), Integer.parseInt(String.valueOf(editTermID.getText())));
