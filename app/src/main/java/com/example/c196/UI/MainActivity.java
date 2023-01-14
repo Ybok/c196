@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 //        Repository repository = new Repository(getApplication());
 //        repository.insertTerm(term);
 
-//        Course course = new Course(0, "First Course", "1 Jan 2023", "1 Feb 2023", "In-Progress", 0);
+//        Course course = new Course(0, "First Course", "1 Jan 2023", "1 Feb 2023", "In-Progress", "Optional notes", 0);
 //        Repository repository = new Repository(getApplication());
 //        repository.insertCourse(course);
 
@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
 //        return super.onOptionsItemSelected(item);
 //    }
 
+
 //        public boolean onCreateOptionsMenu(Menu menu) {
 //        getMenuInflater().inflate(R.menu.menu_term, menu);
 //        return true;
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        switch (item.getItemId()) {
 //            case R.id.addSampleData:
-//                Course course = new Course(0, "First Course", "1 Jan 2023", "1 Feb 2023", "In-Progress", 0);
+//                Course course = new Course(0, "First Course", "1 Jan 2023", "1 Feb 2023", "In-Progress", "Optional notes", 0);
 //                Repository repository = new Repository(getApplication());
 //                repository.insertCourse(course);
 //                return true;

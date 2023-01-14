@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c196.R;
 import com.example.c196.entities.Course;
-import com.example.c196.entities.Term;
 
 import java.util.List;
 
@@ -21,27 +20,22 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     class CourseViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView courseItemView;
-        private final TextView courseItemView2;
-        private final TextView courseItemView3;
-        private final TextView courseItemView4;
-        private final TextView courseItemView5;
 
         private CourseViewHolder(View itemView) {
             super(itemView);
-//            find applicable text view
+
             courseItemView = itemView.findViewById(R.id.textViewCourseTitle);
-            courseItemView2 = itemView.findViewById(R.id.textViewCourseStart);
-            courseItemView3 = itemView.findViewById(R.id.textViewCourseEnd);
-            courseItemView4 = itemView.findViewById(R.id.textViewCourseStatus);
-            courseItemView5 = itemView.findViewById(R.id.textViewCourseInstructor);
-            itemView.setOnClickListener(v -> {
+            courseItemView.setOnClickListener(v -> {
                 int position = getAdapterPosition();
                 final Course curCourse = mCourses.get(position);
                 Intent intent = new Intent(context, CourseDetails.class);
-                intent.putExtra("title", curCourse.getCourseTitle());
-                intent.putExtra("startDate", curCourse.getCourseStartDate());
+                intent.putExtra("id" , curCourse.getCourseID());
+                intent.putExtra("title" , curCourse.getCourseTitle());
+                intent.putExtra("startDate" , curCourse.getCourseStartDate());
                 intent.putExtra("endDate" , curCourse.getCourseEndDate());
                 intent.putExtra("status" , curCourse.getCourseStatus());
+                intent.putExtra("notes" , curCourse.getCourseNotes());
+                intent.putExtra("termID" , curCourse.getTermID());
                 context.startActivity(intent);
             });
         }

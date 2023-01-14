@@ -30,6 +30,7 @@ public class Terms extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         repository = new Repository(getApplication());
         List<Term> allTerms = repository.getTerms();
+
         FloatingActionButton fab = findViewById(R.id.floatingActionButton4);
         termAdapter.setTerms(allTerms);
 

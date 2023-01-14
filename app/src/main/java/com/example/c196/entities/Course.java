@@ -13,15 +13,17 @@ public class Course {
     private String courseStartDate;
     private String courseEndDate;
     private String courseStatus;
+    private String courseNotes;
     private int termID;
 
     //Constructor
-    public Course(int courseID, String courseTitle, String courseStartDate, String courseEndDate, String courseStatus, int termID) {
+    public Course(int courseID, String courseTitle, String courseStartDate, String courseEndDate, String courseStatus, String courseNotes, int termID) {
         this.courseID = courseID;
         this.courseTitle = courseTitle;
         this.courseStartDate = courseStartDate;
         this.courseEndDate = courseEndDate;
         this.courseStatus = courseStatus;
+        this.courseNotes = courseNotes;
         this.termID = termID;
     }
 
@@ -50,6 +52,10 @@ public class Course {
         return courseStatus;
     }
 
+    public String getCourseNotes() {
+        return courseNotes;
+    }
+
     public int getTermID() {
         return termID;
     }
@@ -73,6 +79,10 @@ public class Course {
 
     public void setCourseStatus(String courseStatus) {
         this.courseStatus = courseStatus;
+    }
+
+    public void setCourseNotes(String courseNotes) {
+        this.courseNotes = courseNotes;
     }
 
     public void setTermID(int termID) {
