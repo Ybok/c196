@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/textViewCourseTitle"
+        android:id="@+id/textViewAssessmentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -14,6 +14,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_editor_absoluteX="43dp"
         tools:layout_editor_absoluteY="47dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

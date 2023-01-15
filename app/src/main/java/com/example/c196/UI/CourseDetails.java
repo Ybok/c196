@@ -7,10 +7,16 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c196.R;
 import com.example.c196.database.Repository;
+import com.example.c196.entities.Assessment;
 import com.example.c196.entities.Course;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CourseDetails extends AppCompatActivity {
 
@@ -58,6 +64,18 @@ public class CourseDetails extends AppCompatActivity {
         editCourseNotes.setText(courseNotes);
 
         repository = new Repository(getApplication());
+
+        RecyclerView recyclerView = findViewById(R.id.assessmentrecyclerview);
+        repository = new Repository(getApplication());
+        final AssessmentAdapter assessmentAdapter = new AssessmentAdapter(this);
+        recyclerView.setAdapter(assessmentAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Assessment> filteredAssessments = new ArrayList<>();
+        for (Assessment c : repository.getAssessments()) {
+            if (c.getCourseID() == courseID) filteredAssessments.add(c);
+        }
+        assessmentAdapter.setAssessments(filteredAssessments);
+
         Button button=findViewById(R.id.savecourse);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

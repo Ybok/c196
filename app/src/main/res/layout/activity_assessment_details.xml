@@ -3,21 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".UI.CourseDetails">
+    android:layout_height="match_parent"
+    tools:context=".UI.AssessmentDetails">
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="355dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -28,32 +27,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Associated Term's ID: " />
+                    android:text="Associated Course's ID: " />
 
                 <EditText
-                    android:id="@+id/associatedterm"
+                    android:id="@+id/associatedcourse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Term ID" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Course Name" />
-
-                <EditText
-                    android:id="@+id/coursename"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Course" />
+                    android:hint="Course ID" />
             </LinearLayout>
 
             <LinearLayout
@@ -64,13 +44,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Course Start" />
+                    android:text="Assessment Name" />
 
                 <EditText
-                    android:id="@+id/coursestart"
+                    android:id="@+id/assessmentname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="1 Jan 2023" />
+                    android:hint="OBJ123" />
             </LinearLayout>
 
             <LinearLayout
@@ -81,13 +61,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Course End" />
+                    android:text="Assessment Type" />
 
                 <EditText
-                    android:id="@+id/courseend"
+                    android:id="@+id/assessmenttype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="31 Jun 2023" />
+                    android:hint="Objective" />
             </LinearLayout>
 
             <LinearLayout
@@ -98,13 +78,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Course Status" />
+                    android:text="Assessment Start" />
 
                 <EditText
-                    android:id="@+id/coursestatus"
+                    android:id="@+id/assessmentstart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Complete" />
+                    android:hint="1 Feb 2023" />
             </LinearLayout>
 
             <LinearLayout
@@ -115,24 +95,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Course Notes" />
+                    android:text="Assessment End" />
 
                 <EditText
-                    android:id="@+id/coursenotes"
+                    android:id="@+id/assessmentend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Optional notes" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Instructor information listed here" />
+                    android:hint="2 Feb 2023" />
             </LinearLayout>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -141,22 +110,11 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/savecourse"
+                    android:id="@+id/saveassessment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save" />
             </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Associated Courses:" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/assessmentrecyclerview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>

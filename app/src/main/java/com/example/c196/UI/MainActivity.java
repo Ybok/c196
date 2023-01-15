@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import com.example.c196.R;
 import com.example.c196.database.BikeRepository;
 import com.example.c196.database.Repository;
+import com.example.c196.entities.Assessment;
 import com.example.c196.entities.Course;
 import com.example.c196.entities.Part;
 import com.example.c196.entities.Product;
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
 //        Course course = new Course(0, "First Course", "1 Jan 2023", "1 Feb 2023", "In-Progress", "Optional notes", 0);
 //        Repository repository = new Repository(getApplication());
 //        repository.insertCourse(course);
+
+//        Assessment assessment = new Assessment(0, "OBJ321", "Objective", "1 Feb 2023", "2 Feb 2023",  0);
+//        Repository repository = new Repository(getApplication());
+//        repository.insertAssessment(assessment);
 
         Button button=findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_term, menu);
+//        getMenuInflater().inflate(R.menu.menu_course, menu);
 //        return true;
 //    }
 //    public boolean onOptionsItemSelected(MenuItem item) {
@@ -117,6 +122,22 @@ public class MainActivity extends AppCompatActivity {
 //                Course course = new Course(0, "First Course", "1 Jan 2023", "1 Feb 2023", "In-Progress", "Optional notes", 0);
 //                Repository repository = new Repository(getApplication());
 //                repository.insertCourse(course);
+//                return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
+
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_assessment, menu);
+//        return true;
+//    }
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.addSampleData:
+//                Assessment assessment = new Assessment(0, "OBJ321", "Objective", "1 Feb 2023", "2 Feb 2023",  0);
+//                Repository repository = new Repository(getApplication());
+//                repository.insertAssessment(assessment);
 //                return true;
 //        }
 //        return super.onOptionsItemSelected(item);

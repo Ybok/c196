@@ -40,6 +40,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             });
         }
     }
+
     private List<Course> mCourses;
     private final Context context;
     private final LayoutInflater mInflater;

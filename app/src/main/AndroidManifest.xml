@@ -85,6 +85,15 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".UI.AssessmentDetails"
+            android:exported="false"
+            android:label="Assessment Details"
+            android:parentActivityName=".UI.Assessments">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".UI.MainActivity"
             android:exported="true">
             <intent-filter>
