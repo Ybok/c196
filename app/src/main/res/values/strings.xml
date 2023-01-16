@@ -11,4 +11,9 @@
     <string name="assessment_button">Assessment Button</string>
     <string name="mentor_button">Mentor Button</string>
     <string name="textview">TextView</string>
+    <string name="share">share</string>
+    <string name="notify_start">notify_start</string>
+    <string name="notify_end">notify_end</string>
+    <string name="channel_name" />
+    <string name="channel_description" />
 </resources>

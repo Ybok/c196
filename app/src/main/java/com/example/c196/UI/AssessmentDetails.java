@@ -1,8 +1,13 @@
 package com.example.c196.UI;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -151,5 +156,55 @@ public class AssessmentDetails extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         editAssessmentEnd.setText(sdf.format(myCalendarEnd.getTime()));
+    }
+
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_assessmentdetails, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.notifystartA:
+                String startDateFromScreen = editAssessmentStart.getText().toString();
+                String myFormat = "MM/dd/yy"; //In which you need put here
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                Date myDate = null;
+                try {
+                    myDate = sdf.parse(startDateFromScreen);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Long trigger = myDate.getTime();
+                Intent intent = new Intent(AssessmentDetails.this, MyReceiver.class);
+                intent.putExtra("key", startDateFromScreen + " should trigger");
+                PendingIntent sender = PendingIntent.getBroadcast(AssessmentDetails.this, ++MainActivity.numAlert, intent, PendingIntent.FLAG_IMMUTABLE);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+                return true;
+            case R.id.notifyendA:
+                String endDateFromScreen = editAssessmentEnd.getText().toString();
+                String myFormat2 = "MM/dd/yy"; //In which you need put here
+                SimpleDateFormat sdf2 = new SimpleDateFormat(myFormat2, Locale.US);
+                Date myDate2 = null;
+                try {
+                    myDate2 = sdf2.parse(endDateFromScreen);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Long trigger2 = myDate2.getTime();
+                Intent intent2 = new Intent(AssessmentDetails.this, MyReceiver.class);
+                intent2.putExtra("key", endDateFromScreen + " should trigger");
+                PendingIntent sender2 = PendingIntent.getBroadcast(AssessmentDetails.this, ++MainActivity.numAlert, intent2, PendingIntent.FLAG_IMMUTABLE);
+                AlarmManager alarmManager2 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager2.set(AlarmManager.RTC_WAKEUP, trigger2, sender2);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

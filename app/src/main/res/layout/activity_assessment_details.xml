@@ -84,6 +84,7 @@
                     android:id="@+id/assessmentstart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="none"
                     android:hint="MM/DD/YY" />
             </LinearLayout>
 
@@ -101,6 +102,7 @@
                     android:id="@+id/assessmentend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="none"
                     android:hint="MM/DD/YY" />
             </LinearLayout>
 
