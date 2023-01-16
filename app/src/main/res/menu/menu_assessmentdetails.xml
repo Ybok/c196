@@ -7,5 +7,8 @@
     <item
         android:id="@+id/notifyendA"
         android:title="Notify End" />
+    <item
+        android:id="@+id/deleteassessment"
+        android:title="Delete Assessment"/>
 
 </menu>

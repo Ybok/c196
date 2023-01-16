@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ import com.example.c196.R;
 import com.example.c196.database.Repository;
 import com.example.c196.entities.Assessment;
 import com.example.c196.entities.Course;
+import com.example.c196.entities.Term;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,6 +48,9 @@ public class CourseDetails extends AppCompatActivity {
     String courseStatus;
     String courseNotes;
     int termID;
+
+    int numAssessments;
+    Course currentCourse;
 
     Course course;
     Repository repository;
@@ -234,6 +239,15 @@ public class CourseDetails extends AppCompatActivity {
                 PendingIntent sender2 = PendingIntent.getBroadcast(CourseDetails.this, ++MainActivity.numAlert, intent2, PendingIntent.FLAG_IMMUTABLE);
                 AlarmManager alarmManager2 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager2.set(AlarmManager.RTC_WAKEUP, trigger2, sender2);
+                return true;
+            case R.id.deletecourse:
+                for (Course course : repository.getCourses()) {
+                    if (course.getCourseID() == courseID) currentCourse = course;
+                }
+                repository.deleteCourse(currentCourse);
+                Toast.makeText(CourseDetails.this, currentCourse.getCourseTitle() + " was deleted", Toast.LENGTH_LONG).show();
+                Intent intent3=new Intent(CourseDetails.this, Courses.class);
+                startActivity(intent3);
                 return true;
         }
         return super.onOptionsItemSelected(item);

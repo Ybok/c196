@@ -3,11 +3,14 @@ package com.example.c196.UI;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,7 +40,10 @@ public class TermDetails extends AppCompatActivity {
     String termStart;
     String termEnd;
     Term term;
+    Term currentTerm;
     Repository repository;
+
+    int numCourses;
 
     DatePickerDialog.OnDateSetListener startDate;
     DatePickerDialog.OnDateSetListener endDate;
@@ -160,6 +166,7 @@ public class TermDetails extends AppCompatActivity {
 
     }
 
+
     private void updateLabelStart() {
         String myFormat = "MM/dd/yy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -172,6 +179,38 @@ public class TermDetails extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         editTermEnd.setText(sdf.format(myCalendarEnd.getTime()));
+    }
+
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.deletecourse, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.deleteterm:
+                for (Term term : repository.getTerms()) {
+                    if (term.getTermID() == termID) currentTerm = term;
+                }
+
+                numCourses = 0;
+                for (Course course : repository.getCourses()) {
+                    if (course.getTermID() == termID) ++numCourses;
+                }
+
+                if (numCourses == 0) {
+                    repository.deleteTerm(currentTerm);
+                    Toast.makeText(TermDetails.this, currentTerm.getTermTitle() + " was deleted", Toast.LENGTH_LONG).show();
+                    Intent intent=new Intent(TermDetails.this, Terms.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(TermDetails.this, "Can't delete a term with courses associated", Toast.LENGTH_LONG).show();
+                }
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
