@@ -1,9 +1,11 @@
 package com.example.c196.UI;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +17,13 @@ import com.example.c196.database.Repository;
 import com.example.c196.entities.Assessment;
 import com.example.c196.entities.Course;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CourseDetails extends AppCompatActivity {
 
@@ -38,6 +45,11 @@ public class CourseDetails extends AppCompatActivity {
     Course course;
     Repository repository;
 
+    DatePickerDialog.OnDateSetListener startDate;
+    DatePickerDialog.OnDateSetListener endDate;
+    final Calendar myCalendarStart = Calendar.getInstance();
+    final Calendar myCalendarEnd = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +61,11 @@ public class CourseDetails extends AppCompatActivity {
         editCourseEnd = findViewById(R.id.courseend);
         editCourseStatus = findViewById(R.id.coursestatus);
         editCourseNotes = findViewById(R.id.coursenotes);
+
+        String myFormat = "MM/dd/yy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        String currentDate = sdf.format(new Date());
+
         courseID = getIntent().getIntExtra("id", -1);
         courseName = getIntent().getStringExtra("title");
         courseStart = getIntent().getStringExtra("startDate");
@@ -92,6 +109,70 @@ public class CourseDetails extends AppCompatActivity {
             }
         });
 
+
+        editCourseStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Date date;
+                String info = editCourseStart.getText().toString();
+                try {
+                    myCalendarStart.setTime(sdf.parse(info));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                new DatePickerDialog(CourseDetails.this, startDate, myCalendarStart.get(Calendar.YEAR),
+                        myCalendarStart.get(Calendar.MONTH), myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+        startDate = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int startYear, int startMonth, int startDay) {
+                myCalendarStart.set(Calendar.YEAR, startYear);
+                myCalendarStart.set(Calendar.MONTH, startMonth);
+                myCalendarStart.set(Calendar.DAY_OF_MONTH, startDay);
+                updateLabelStart();
+            }
+        };
+
+
+        editCourseEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Date date;
+                String info = editCourseEnd.getText().toString();
+                try {
+                    myCalendarEnd.setTime(sdf.parse(info));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                new DatePickerDialog(CourseDetails.this, endDate, myCalendarEnd.get(Calendar.YEAR),
+                        myCalendarEnd.get(Calendar.MONTH), myCalendarEnd.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+        endDate = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int endYear, int endMonth, int endDay) {
+                myCalendarEnd.set(Calendar.YEAR, endYear);
+                myCalendarEnd.set(Calendar.MONTH, endMonth);
+                myCalendarEnd.set(Calendar.DAY_OF_MONTH, endDay);
+                updateLabelEnd();
+            }
+        };
+
+    }
+
+    private void updateLabelStart() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        editCourseStart.setText(sdf.format(myCalendarStart.getTime()));
+    }
+
+    private void updateLabelEnd() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        editCourseEnd.setText(sdf.format(myCalendarEnd.getTime()));
     }
 
 }

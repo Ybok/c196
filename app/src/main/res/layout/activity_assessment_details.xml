@@ -84,7 +84,7 @@
                     android:id="@+id/assessmentstart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="1 Feb 2023" />
+                    android:hint="MM/DD/YY" />
             </LinearLayout>
 
             <LinearLayout
@@ -101,7 +101,7 @@
                     android:id="@+id/assessmentend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="2 Feb 2023" />
+                    android:hint="MM/DD/YY" />
             </LinearLayout>
 
             <androidx.appcompat.widget.LinearLayoutCompat
