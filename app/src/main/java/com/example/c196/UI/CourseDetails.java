@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -102,6 +105,21 @@ public class CourseDetails extends AppCompatActivity {
             if (c.getCourseID() == courseID) filteredAssessments.add(c);
         }
         assessmentAdapter.setAssessments(filteredAssessments);
+
+        Spinner spinner = findViewById(R.id.spinner);
+        ArrayAdapter<Term> termsArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, repository.getTerms());
+        spinner.setAdapter(termsArrayAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                editCourseNotes.setText(termsArrayAdapter.getItem(i).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                editCourseNotes.setText("Nothing selected");
+            }
+        });
 
         Button button=findViewById(R.id.savecourse);
         button.setOnClickListener(new View.OnClickListener() {

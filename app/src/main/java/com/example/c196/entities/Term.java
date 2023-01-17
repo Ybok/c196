@@ -58,6 +58,11 @@ public class Term {
     public void setTermEndDate(String termEndDate) {
         this.termEndDate = termEndDate;
     }
+
+    @Override
+    public String toString() {
+        return "Associated Term: " + termTitle;
+    }
 }
 
 

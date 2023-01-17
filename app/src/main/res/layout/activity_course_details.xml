@@ -37,6 +37,8 @@
                     android:hint="Term ID" />
             </LinearLayout>
 
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -109,6 +111,17 @@
                     android:hint="Complete" />
             </LinearLayout>
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="373dp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -134,7 +147,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Instructor information listed here" />
+                    android:text="Instructor Name: John Smith" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Instructor Phone: 123-456-7890" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Instructor E-Mail: john.smith.12345@wgu.edu" />
             </LinearLayout>
 
             <androidx.appcompat.widget.LinearLayoutCompat
